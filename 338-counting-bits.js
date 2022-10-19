@@ -28,10 +28,7 @@ const countBits = function (n) {
   const ans = [0];
   let offset = 1;
   for (let i = 1; i <= n; i++) {
-    if (offset * 2 === i) {
-      offset *= 2;
-      ans[i] = 1 + ans[i - offset];
-    }
+    if (offset * 2 === i) offset *= 2;
     ans[i] = 1 + ans[i - offset];
   }
   return ans;
