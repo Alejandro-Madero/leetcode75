@@ -25,8 +25,14 @@
 // 0 <= n <= 105
 
 const countBits = function (n) {
-  return Array.from(
-    { length: n + 1 },
-    (_, i) => i.toString(2).replace(/0/g, "").length
-  );
+  const ans = [0];
+  let offset = 1;
+  for (let i = 1; i <= n; i++) {
+    if (offset * 2 === i) {
+      offset *= 2;
+      ans[i] = 1 + ans[i - offset];
+    }
+    ans[i] = 1 + ans[i - offset];
+  }
+  return ans;
 };
