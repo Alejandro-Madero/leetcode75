@@ -20,6 +20,6 @@
 // 1 <= nums.length <= 105
 // -109 <= nums[i] <= 109
 
-const containsDuplicates = function (nums) {
+export const containsDuplicates = function (nums) {
   return new Set(nums).size !== nums.length;
 };
