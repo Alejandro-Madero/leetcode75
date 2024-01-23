@@ -50,8 +50,9 @@ const threeSum = function (nums) {
     if (sortedNums[i] === sortedNums[i - 1]) continue;
 
     while (l < r) {
-      if (sortedNums[i] + sortedNums[l] + sortedNums[r] > 0) r--;
-      else if (sortedNums[i] + sortedNums[l] + sortedNums[r] < 0) l++;
+      const sum = sortedNums[i] + sortedNums[l] + sortedNums[r];
+      if (sum > 0) r--;
+      else if (sum < 0) l++;
       else {
         res.push([sortedNums[i], sortedNums[l], sortedNums[r]]);
         ++l;
