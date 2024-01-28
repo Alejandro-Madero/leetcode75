@@ -29,6 +29,13 @@ nums is sorted in ascending order.
 
 */
 
+/**
+ *
+ * @param {Number[]} nums
+ * @param {Number} target
+ * @returns {Number}
+ */
+
 const search = function (nums, target) {
   let lo = 0;
   let hi = nums.length - 1;
