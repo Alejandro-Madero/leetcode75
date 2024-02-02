@@ -43,14 +43,14 @@ piles.length <= h <= 109
  */
 
 const minEatingSpeed = function (piles, h) {
-  const sPiles = piles.toSorted((a, b) => a - b);
   let lo = 1;
-  let hi = sPiles.at(-1);
+  let hi = Math.max(...piles);
 
+  console.log(hi);
   while (lo < hi) {
     const k = Math.floor(lo + (hi - lo) / 2);
 
-    let totalHours = sPiles.reduce(
+    let totalHours = piles.reduce(
       (acc, pile) => (acc += Math.ceil(pile / k)),
       0
     );
@@ -61,3 +61,27 @@ const minEatingSpeed = function (piles, h) {
 
   return hi;
 };
+
+// Another solution:
+
+// const minEatingSpeed = function (piles, h) {
+//   let lo = 1;
+//   let hi = Math.max(...piles);
+//   let best = hi;
+
+//   while (lo <= hi) {
+//     const k = Math.floor(lo + (hi - lo) / 2);
+
+//     let totalHours = piles.reduce(
+//       (acc, pile) => (acc += Math.ceil(pile / k)),
+//       0
+//     );
+
+//     if (totalHours <= h) {
+//       hi = k - 1;
+//       best = k;
+//     } else lo = k + 1;
+//   }
+
+//   return best;
+// };
