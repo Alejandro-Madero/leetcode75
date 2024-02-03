@@ -46,6 +46,9 @@ nums is sorted and rotated between 1 and n times.
  * @param {number[]} nums
  * @return {number}
  */
+
+// Solution Big O(log N)
+
 const findMin = function (nums) {
   let l = 0;
   let r = nums.length - 1;
@@ -60,4 +63,23 @@ const findMin = function (nums) {
   return nums[l];
 };
 
-console.log(findMin([5, 6, 7, 8, 1, 2, 3, 4]));
+// Another solution :
+
+// const findMin = function (nums) {
+//   let l = 0;
+//   let r = nums.length - 1;
+//   let res = nums[0];
+
+//   while (l <= r) {
+//     if (nums[l] < nums[r]) return Math.min(nums[l], res);
+
+//     const m = Math.floor(l + (r - l) / 2);
+
+//     if (nums[m] >= nums[l]) l = m + 1;
+//     else r = m - 1;
+
+//     res = Math.min(res, nums[m]);
+//   }
+
+//   return res;
+// };
